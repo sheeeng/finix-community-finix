@@ -431,6 +431,14 @@
     </a>
   </li>
   
+  <li>
+    <a href='#option-virtualisation.vmVariant' title="virtualisation.vmVariant">
+      virtualisation.vmVariant
+      
+      
+    </a>
+  </li>
+  
 
   
   
@@ -23175,7 +23183,7 @@ octal, with the leading zero.</p>
 to choose an appropriate time to run within that interval.</p>
 </body></html></div>
   <dl class="option-details">
-    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "hourly", "daily", "monthly", "weekly"</code></dd>
+    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "5m", "15m", "30m", "hourly", "daily", "weekly", "monthly"</code></dd>
     <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(152,195,121);">"</span><span style="color:rgb(152,195,121);">daily</span><span style="color:rgb(152,195,121);">"</span></code></pre></body></html>
 </body></html></dd>
   </dl>
@@ -26791,15 +26799,12 @@ for additional details.</p>
     <button type="button" class="copy-link" aria-label="Copy link to this option" title="Copy link to this option"></button>
     <span class="copy-feedback">Link copied!</span>
   </h3>
-  <div class="option-description"><html><head></head><body><p>The interval at which this task should run its specified <code class="nixos-option">command</code>. Accepts either a
-standard <a href="https://man.archlinux.org/man/crontab.5" class="manpage-reference">crontab(5)</a> expression or one of: <code>hourly</code>, <code>daily</code>, <code>weekly</code>, <code>monthly</code>, or <code>yearly</code>.</p>
-<p>If a standard <a href="https://man.archlinux.org/man/crontab.5" class="manpage-reference">crontab(5)</a> expression is provided this value will be passed directly
-to the <code>scheduler</code> implementation and execute exactly as specified.</p>
-<p>If one of the special values, <code>hourly</code>, <code>daily</code>, <code>monthly</code>, <code>weekly</code>, or <code>yearly</code>, is provided then the
-underlying <code>scheduler</code> implementation will use its features to decide when best to run.</p>
+  <div class="option-description"><html><head></head><body><p>The interval at which this task should run.</p>
+<p>The underlying <code class="nixos-option">providers.scheduler</code> implementation uses its scheduling features
+to choose an appropriate time to run within that interval.</p>
 </body></html></div>
   <dl class="option-details">
-    <dt>Type</dt><dd class="option-value"><code>(optionally newline-terminated) single-line string</code></dd>
+    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "5m", "15m", "30m", "hourly", "daily", "weekly", "monthly"</code></dd>
     <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(152,195,121);">"</span><span style="color:rgb(152,195,121);">weekly</span><span style="color:rgb(152,195,121);">"</span></code></pre></body></html>
 </body></html></dd>
   </dl>
@@ -26970,15 +26975,12 @@ for additional details.</p>
     <button type="button" class="copy-link" aria-label="Copy link to this option" title="Copy link to this option"></button>
     <span class="copy-feedback">Link copied!</span>
   </h3>
-  <div class="option-description"><html><head></head><body><p>The interval at which this task should run its specified <code class="nixos-option">command</code>. Accepts either a
-standard <a href="https://man.archlinux.org/man/crontab.5" class="manpage-reference">crontab(5)</a> expression or one of: <code>hourly</code>, <code>daily</code>, <code>weekly</code>, <code>monthly</code>, or <code>yearly</code>.</p>
-<p>If a standard <a href="https://man.archlinux.org/man/crontab.5" class="manpage-reference">crontab(5)</a> expression is provided this value will be passed directly
-to the <code>scheduler</code> implementation and execute exactly as specified.</p>
-<p>If one of the special values, <code>hourly</code>, <code>daily</code>, <code>monthly</code>, <code>weekly</code>, or <code>yearly</code>, is provided then the
-underlying <code>scheduler</code> implementation will use its features to decide when best to run.</p>
+  <div class="option-description"><html><head></head><body><p>The interval at which this task should run.</p>
+<p>The underlying <code class="nixos-option">providers.scheduler</code> implementation uses its scheduling features
+to choose an appropriate time to run within that interval.</p>
 </body></html></div>
   <dl class="option-details">
-    <dt>Type</dt><dd class="option-value"><code>string</code></dd>
+    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "5m", "15m", "30m", "hourly", "daily", "weekly", "monthly"</code></dd>
     <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(152,195,121);">"</span><span style="color:rgb(152,195,121);">weekly</span><span style="color:rgb(152,195,121);">"</span></code></pre></body></html>
 </body></html></dd>
   </dl>
@@ -29059,7 +29061,7 @@ a specified user.</p>
 to choose an appropriate time to run within that interval.</p>
 </body></html></div>
   <dl class="option-details">
-    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "hourly", "daily", "monthly", "weekly"</code></dd>
+    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "5m", "15m", "30m", "hourly", "daily", "weekly", "monthly"</code></dd>
   </dl>
   <dl class="option-details option-sources">
     <dt>Declared in</dt><dd class="option-value"><code><a href="https://github.com/finix-community/finix/blob/main/modules/providers/scheduler" target="_blank" rel="noopener noreferrer">&lt;finix/modules/providers/scheduler&gt;</a></code></dd>
@@ -30663,7 +30665,7 @@ so it remains constant for the whole run time of the daemon.</p>
 </body></html></div>
   <dl class="option-details">
     <dt>Type</dt><dd class="option-value"><code>package</code></dd>
-    <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(171,178,191);">pkgs</span><span style="color:rgb(132,139,152);">.</span><span style="color:rgb(86,182,194);">dbus</span></code></pre></body></html>
+    <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(171,178,191);">pkgs</span><span style="color:rgb(132,139,152);">.</span><span style="color:rgb(86,182,194);">dbus</span><span style="color:rgb(132,139,152);">.</span><span style="color:rgb(97,175,239);">override</span>&nbsp;<span style="color:rgb(132,139,152);">{</span>&nbsp;<span style="color:rgb(86,182,194);">enableSystemd</span>&nbsp;<span style="color:rgb(171,178,191);">=</span>&nbsp;<span style="color:rgb(209,154,102);">true</span><span style="color:rgb(132,139,152);">;</span>&nbsp;<span style="color:rgb(132,139,152);">}</span></code></pre></body></html>
 </body></html></dd>
   </dl>
   <dl class="option-details option-sources">
@@ -31159,7 +31161,7 @@ for additional details.</p>
 to choose an appropriate time to run within that interval.</p>
 </body></html></div>
   <dl class="option-details">
-    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "hourly", "daily", "monthly", "weekly"</code></dd>
+    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "5m", "15m", "30m", "hourly", "daily", "weekly", "monthly"</code></dd>
     <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(152,195,121);">"</span><span style="color:rgb(152,195,121);">weekly</span><span style="color:rgb(152,195,121);">"</span></code></pre></body></html>
 </body></html></dd>
   </dl>
@@ -31907,7 +31909,7 @@ for additional details.</p>
 to choose an appropriate time to run within that interval.</p>
 </body></html></div>
   <dl class="option-details">
-    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "hourly", "daily", "monthly", "weekly"</code></dd>
+    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "5m", "15m", "30m", "hourly", "daily", "weekly", "monthly"</code></dd>
     <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(152,195,121);">"</span><span style="color:rgb(152,195,121);">weekly</span><span style="color:rgb(152,195,121);">"</span></code></pre></body></html>
 </body></html></dd>
   </dl>
@@ -32427,7 +32429,7 @@ for additional details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If left as the default value this directory will automatically be created on
-system activation, otherwise you are responsible for ensuring the directory exists
+service activation, otherwise you are responsible for ensuring the directory exists
 with appropriate ownership and permissions before the <code>jellyfin</code> service starts.</p>
 </div>
 </body></html></div>
@@ -33437,7 +33439,7 @@ for additional details.</p>
 to choose an appropriate time to run within that interval.</p>
 </body></html></div>
   <dl class="option-details">
-    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "hourly", "daily", "monthly", "weekly"</code></dd>
+    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "5m", "15m", "30m", "hourly", "daily", "weekly", "monthly"</code></dd>
     <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(152,195,121);">"</span><span style="color:rgb(152,195,121);">weekly</span><span style="color:rgb(152,195,121);">"</span></code></pre></body></html>
 </body></html></dd>
   </dl>
@@ -34017,7 +34019,7 @@ for additional details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If left as the default value this directory will automatically be created on
-system activation, otherwise you are responsible for ensuring the directory exists
+service activation, otherwise you are responsible for ensuring the directory exists
 with appropriate ownership and permissions before the <code>nzbget</code> service starts.</p>
 </div>
 </body></html></div>
@@ -34634,7 +34636,7 @@ for additional details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If left as the default value this directory will automatically be created on
-system activation, otherwise you are responsible for ensuring the directory exists
+service activation, otherwise you are responsible for ensuring the directory exists
 with appropriate ownership and permissions before the <code>postgresql</code> service starts.</p>
 </div>
 </body></html></div>
@@ -34835,7 +34837,7 @@ for additional details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If left as the default value this directory will automatically be created on
-system activation, otherwise you are responsible for ensuring the directory exists
+service activation, otherwise you are responsible for ensuring the directory exists
 with appropriate ownership and permissions before the <code>radarr</code> service starts.</p>
 </div>
 </body></html></div>
@@ -35573,7 +35575,7 @@ for additional details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If left as the default value this directory will automatically be created on
-system activation, otherwise you are responsible for ensuring the directory exists
+service activation, otherwise you are responsible for ensuring the directory exists
 with appropriate ownership and permissions before the <code>sonarr</code> service starts.</p>
 </div>
 </body></html></div>
@@ -37134,7 +37136,7 @@ ensuring the group exists before the <code>ytdl-sub</code> service starts.</p>
 to choose an appropriate time to run within that interval.</p>
 </body></html></div>
   <dl class="option-details">
-    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "hourly", "daily", "monthly", "weekly"</code></dd>
+    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "5m", "15m", "30m", "hourly", "daily", "weekly", "monthly"</code></dd>
     <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(152,195,121);">"</span><span style="color:rgb(152,195,121);">daily</span><span style="color:rgb(152,195,121);">"</span></code></pre></body></html>
 </body></html></dd>
   </dl>
@@ -37318,7 +37320,7 @@ ensuring the user exists before the <code>ytdl-sub</code> service starts.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If left as the default value this directory will automatically be created on
-system activation, otherwise you are responsible for ensuring the directory exists
+service activation, otherwise you are responsible for ensuring the directory exists
 with appropriate ownership and permissions before the <code>zerotier</code> service starts.</p>
 </div>
 </body></html></div>
@@ -37359,7 +37361,7 @@ with appropriate ownership and permissions before the <code>zerotier</code> serv
 to choose an appropriate time to run within that interval.</p>
 </body></html></div>
   <dl class="option-details">
-    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "hourly", "daily", "monthly", "weekly"</code></dd>
+    <dt>Type</dt><dd class="option-value"><code>one of "minutely", "5m", "15m", "30m", "hourly", "daily", "weekly", "monthly"</code></dd>
     <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(152,195,121);">"</span><span style="color:rgb(152,195,121);">monthly</span><span style="color:rgb(152,195,121);">"</span></code></pre></body></html>
 </body></html></dd>
   </dl>
@@ -38399,6 +38401,23 @@ activation.</p>
   </dl>
   <dl class="option-details option-sources">
     <dt>Declared in</dt><dd class="option-value"><code><a href="https://github.com/finix-community/finix/blob/main/modules/virtualisation/android.nix" target="_blank" rel="noopener noreferrer">&lt;finix/modules/virtualisation/android.nix&gt;</a></code></dd>
+  </dl>
+</div>
+<div class="option" id="option-virtualisation.vmVariant">
+  <h3 class="option-name">
+    <a href="#option-virtualisation.vmVariant" class="option-anchor">virtualisation.vmVariant</a>
+    <button type="button" class="copy-link" aria-label="Copy link to this option" title="Copy link to this option"></button>
+    <span class="copy-feedback">Link copied!</span>
+  </h3>
+  <div class="option-description"><html><head></head><body><p>Machine configuration to be added for the vm script produced by <code>nh os build-vm</code>.</p>
+</body></html></div>
+  <dl class="option-details">
+    <dt>Type</dt><dd class="option-value"><code>submodule</code></dd>
+    <dt>Default</dt><dd class="option-value"><html><head></head><body><html><head></head><body><pre class="highlight"><code class="language-nix"><span style="color:rgb(132,139,152);">{</span>&nbsp;<span style="color:rgb(132,139,152);">}</span></code></pre></body></html>
+</body></html></dd>
+  </dl>
+  <dl class="option-details option-sources">
+    <dt>Declared in</dt><dd class="option-value"><code><a href="https://github.com/finix-community/finix/blob/main/modules/virtualisation/build-vm.nix" target="_blank" rel="noopener noreferrer">&lt;finix/modules/virtualisation/build-vm.nix&gt;</a></code></dd>
   </dl>
 </div>
 <div class="option" id="option-xdg.autostart.enable">
